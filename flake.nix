@@ -16,11 +16,12 @@
 
           packages = [
             (rust-bin.stable.latest.default.override {
-              extensions = [ "rust-src" "rust-analyzer" ];
+              extensions = [ "rust-src" "rust-analyzer" "llvm-tools" ];
               targets = ["thumbv8m.main-none-eabi"];
             })
 
             cargo-expand
+            cargo-binutils
             probe-rs
 
             qemu
