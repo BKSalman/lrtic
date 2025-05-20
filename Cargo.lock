@@ -172,6 +172,7 @@ checksum = "1f97262eb4208ffba5e06766c670dfabef190544bebcd7912c464a89c26fdd77"
 dependencies = [
  "cortex-m",
  "cortex-m-rt",
+ "defmt 0.3.100",
 ]
 
 [[package]]

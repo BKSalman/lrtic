@@ -22,6 +22,7 @@
 
             cargo-expand
             cargo-binutils
+            usbutils
             probe-rs
 
             qemu
