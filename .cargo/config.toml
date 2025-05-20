@@ -1,8 +1,11 @@
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
-runner = "probe-rs run --chip-description-path ./MCXN.yaml --chip MCXN947VDF"
+runner = "probe-rs run --chip-description-path ./MCXN947.yaml --chip MCXN947VDF"
 rustflags = [
   "-C", "link-arg=-Map=target/app.map",
 ]
 
 [build]
 target = "thumbv8m.main-none-eabi"
+
+[env]
+DEFMT_LOG = "info"

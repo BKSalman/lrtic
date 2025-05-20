@@ -1,4 +1,4 @@
-name: MCXN
+name: MCXN947
 manufacturer:
   id: 0x15
   cc: 0x0
@@ -11,28 +11,41 @@ variants:
     type: armv8m
     core_access_options: !Arm
       ap: !v1 0
+  # - name: cm33_core1
+  #   type: armv8m
+  #   core_access_options: !Arm
+  #     ap: !v1 1
   memory_map:
   - !Nvm
     name: PROGRAM_FLASH0
     range:
       start: 0x0
-      end: 0x00200000
+      end: 0x100000
     cores:
     - cm33_core0
+    # - cm33_core1
+    access:
+      write: false
+      boot: true
   - !Nvm
     name: PROGRAM_FLASH1
     range:
       start: 0x100000
-      end: 0x10200000
+      end: 0x200000
     cores:
     - cm33_core0
+    # - cm33_core1
+    access:
+      write: false
+      boot: true
   - !Generic
     name: BootROM
     range:
       start: 0x3000000
-      end: 0x03040000
+      end: 0x3040000
     cores:
     - cm33_core0
+    # - cm33_core1
     access:
       write: false
   - !Ram
@@ -42,6 +55,7 @@ variants:
       end: 0x4018000
     cores:
     - cm33_core0
+    # - cm33_core1
   - !Generic
     name: PROGRAM_FLASH_alias0
     range:
@@ -49,6 +63,9 @@ variants:
       end: 0x10100000
     cores:
     - cm33_core0
+    # - cm33_core1
+    access:
+      write: false
   - !Generic
     name: PROGRAM_FLASH_alias1
     range:
@@ -56,6 +73,9 @@ variants:
       end: 0x10200000
     cores:
     - cm33_core0
+    # - cm33_core1
+    access:
+      write: false
   - !Generic
     name: BootROM_alias
     range:
@@ -63,6 +83,7 @@ variants:
       end: 0x13040000
     cores:
     - cm33_core0
+    # - cm33_core1
     access:
       write: false
   - !Generic
@@ -72,6 +93,7 @@ variants:
       end: 0x14018000
     cores:
     - cm33_core0
+    # - cm33_core1
   - !Ram
     name: SRAM
     range:
@@ -79,13 +101,15 @@ variants:
       end: 0x20060000
     cores:
     - cm33_core0
-  # - !Ram
-  #   name: SRAMH
-  #   range:
-  #     start: 0x20060000
-  #     end: 0x20067FFC
-  #   cores:
-  #   - cm33_core0
+    # - cm33_core1
+  - !Ram
+    name: SRAMH
+    range:
+      start: 0x20060000
+      end: 0x20068000
+    cores:
+    - cm33_core0
+    # - cm33_core1
   - !Generic
     name: SRAM_alias
     range:
@@ -93,6 +117,7 @@ variants:
       end: 0x30060000
     cores:
     - cm33_core0
+    # - cm33_core1
   - !Generic
     name: SRAMH_alias
     range:
@@ -100,6 +125,7 @@ variants:
       end: 0x30068000
     cores:
     - cm33_core0
+    # - cm33_core1
   - !Ram
     name: USB_RAM
     range:
@@ -107,6 +133,7 @@ variants:
       end: 0x400bb000
     cores:
     - cm33_core0
+    # - cm33_core1
   - !Generic
     name: USB_RAM_alias
     range:
@@ -114,6 +141,7 @@ variants:
       end: 0x500bb000
     cores:
     - cm33_core0
+    # - cm33_core1
   flash_algorithms:
   - mcxn9xx_2048
   - mcxn9xx_2048_s
@@ -125,6 +153,10 @@ variants:
     type: armv8m
     core_access_options: !Arm
       ap: !v1 0
+  - name: cm33_core1
+    type: armv8m
+    core_access_options: !Arm
+      ap: !v1 1
   memory_map:
   - !Nvm
     name: PROGRAM_FLASH0
@@ -133,6 +165,10 @@ variants:
       end: 0x100000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      write: false
+      boot: true
   - !Nvm
     name: PROGRAM_FLASH1
     range:
@@ -140,6 +176,10 @@ variants:
       end: 0x200000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      write: false
+      boot: true
   - !Generic
     name: BootROM
     range:
@@ -147,6 +187,7 @@ variants:
       end: 0x3040000
     cores:
     - cm33_core0
+    - cm33_core1
     access:
       write: false
   - !Ram
@@ -156,6 +197,7 @@ variants:
       end: 0x4018000
     cores:
     - cm33_core0
+    - cm33_core1
   - !Generic
     name: PROGRAM_FLASH_alias0
     range:
@@ -163,6 +205,9 @@ variants:
       end: 0x10100000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      write: false
   - !Generic
     name: PROGRAM_FLASH_alias1
     range:
@@ -170,6 +215,9 @@ variants:
       end: 0x10200000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      write: false
   - !Generic
     name: BootROM_alias
     range:
@@ -177,6 +225,7 @@ variants:
       end: 0x13040000
     cores:
     - cm33_core0
+    - cm33_core1
     access:
       write: false
   - !Generic
@@ -186,6 +235,7 @@ variants:
       end: 0x14018000
     cores:
     - cm33_core0
+    - cm33_core1
   - !Ram
     name: SRAM
     range:
@@ -193,13 +243,15 @@ variants:
       end: 0x20060000
     cores:
     - cm33_core0
-  # - !Ram
-  #   name: SRAMH
-  #   range:
-  #     start: 0x20060000
-  #     end: 0x20067FFC
-  #   cores:
-  #   - cm33_core0
+    - cm33_core1
+  - !Ram
+    name: SRAMH
+    range:
+      start: 0x20060000
+      end: 0x20068000
+    cores:
+    - cm33_core0
+    - cm33_core1
   - !Generic
     name: SRAM_alias
     range:
@@ -207,6 +259,7 @@ variants:
       end: 0x30060000
     cores:
     - cm33_core0
+    - cm33_core1
   - !Generic
     name: SRAMH_alias
     range:
@@ -214,6 +267,9 @@ variants:
       end: 0x30068000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   - !Ram
     name: USB_RAM
     range:
@@ -221,6 +277,9 @@ variants:
       end: 0x400bb000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   - !Generic
     name: USB_RAM_alias
     range:
@@ -228,6 +287,9 @@ variants:
       end: 0x500bb000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   flash_algorithms:
   - mcxn9xx_2048
   - mcxn9xx_2048_s
@@ -239,6 +301,10 @@ variants:
     type: armv8m
     core_access_options: !Arm
       ap: !v1 0
+  - name: cm33_core1
+    type: armv8m
+    core_access_options: !Arm
+      ap: !v1 1
   memory_map:
   - !Nvm
     name: PROGRAM_FLASH0
@@ -247,6 +313,10 @@ variants:
       end: 0x100000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      write: false
+      boot: true
   - !Nvm
     name: PROGRAM_FLASH1
     range:
@@ -254,6 +324,10 @@ variants:
       end: 0x200000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      write: false
+      boot: true
   - !Generic
     name: BootROM
     range:
@@ -261,6 +335,7 @@ variants:
       end: 0x3040000
     cores:
     - cm33_core0
+    - cm33_core1
     access:
       write: false
   - !Ram
@@ -270,6 +345,9 @@ variants:
       end: 0x4018000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   - !Generic
     name: PROGRAM_FLASH_alias0
     range:
@@ -277,6 +355,9 @@ variants:
       end: 0x10100000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      write: false
   - !Generic
     name: PROGRAM_FLASH_alias1
     range:
@@ -284,6 +365,9 @@ variants:
       end: 0x10200000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      write: false
   - !Generic
     name: BootROM_alias
     range:
@@ -291,6 +375,7 @@ variants:
       end: 0x13040000
     cores:
     - cm33_core0
+    - cm33_core1
     access:
       write: false
   - !Generic
@@ -300,6 +385,9 @@ variants:
       end: 0x14018000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   - !Ram
     name: SRAM
     range:
@@ -307,13 +395,19 @@ variants:
       end: 0x20060000
     cores:
     - cm33_core0
-  # - !Ram
-  #   name: SRAMH
-  #   range:
-  #     start: 0x20060000
-  #     end: 0x20067FFC
-  #   cores:
-  #   - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
+  - !Ram
+    name: SRAMH
+    range:
+      start: 0x20060000
+      end: 0x20068000
+    cores:
+    - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   - !Generic
     name: SRAM_alias
     range:
@@ -321,6 +415,9 @@ variants:
       end: 0x30060000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   - !Generic
     name: SRAMH_alias
     range:
@@ -328,6 +425,9 @@ variants:
       end: 0x30068000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   - !Ram
     name: USB_RAM
     range:
@@ -335,6 +435,9 @@ variants:
       end: 0x400bb000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   - !Generic
     name: USB_RAM_alias
     range:
@@ -342,6 +445,9 @@ variants:
       end: 0x500bb000
     cores:
     - cm33_core0
+    - cm33_core1
+    access:
+      execute: false
   flash_algorithms:
   - mcxn9xx_2048
   - mcxn9xx_2048_s
