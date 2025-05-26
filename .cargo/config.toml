@@ -5,7 +5,7 @@ rustflags = [
 ]
 
 [build]
-target = "thumbv8m.main-none-eabi"
+target = "thumbv8m.main-none-eabihf"
 
 [env]
 DEFMT_LOG = "info"

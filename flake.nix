@@ -17,7 +17,7 @@
           packages = [
             (rust-bin.stable.latest.default.override {
               extensions = [ "rust-src" "rust-analyzer" "llvm-tools" ];
-              targets = ["thumbv8m.main-none-eabi"];
+              targets = ["thumbv8m.main-none-eabihf"];
             })
 
             cargo-expand
