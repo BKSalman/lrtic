@@ -59,7 +59,7 @@ fn main() -> ! {
                     gpio.set_PTSO(10, true);
                 });
 
-            defmt::info!("on");
+            defmt::info!("off");
 
             for _ in 0..200_000 {
                 cortex_m::asm::nop();
@@ -73,7 +73,7 @@ fn main() -> ! {
                     gpio.set_PTCO(10, true);
                 });
 
-            defmt::info!("off");
+            defmt::info!("on");
 
             for _ in 0..200_000 {
                 cortex_m::asm::nop();
