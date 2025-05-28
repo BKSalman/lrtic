@@ -1,5 +1,5 @@
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
-runner = "probe-rs run --chip-description-path ./MCXN947.yaml --chip MCXN947VDF"
+runner = "probe-rs run --chip MCXN947"
 rustflags = [
   "-C", "link-arg=-Map=target/app.map",
 ]
